@@ -3,7 +3,6 @@ const input = document.getElementById("input");
 const portfolioWindow = document.getElementById("portfolioWindow");
 const detailWindow = document.getElementById("detailWindow");
 
-// Datos de proyectos para ventana detalle
 const projectDetails = {
     fin: {
     title: "F.I.N - Página Web",
@@ -140,7 +139,6 @@ input.addEventListener("keydown", function (e) {
     }
 });
 
-// Abrir ventana por id
 function openWindow(id) {
     const win = document.getElementById(id);
     win.style.top = id === 'portfolioWindow' ? "10%" : "15%";
@@ -170,23 +168,18 @@ function makeDraggable(dragHandleId, windowId) {
     let isDragging = false;
     let offsetX, offsetY;
 
-    dragHandle.addEventListener("mousedown", function(e) {
-    isDragging = true;
-    const rect = win.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-    document.body.style.userSelect = 'none';
-    });
+    function startDrag(x, y) {
+        isDragging = true;
+        const rect = win.getBoundingClientRect();
+        offsetX = x - rect.left;
+        offsetY = y - rect.top;
+        document.body.style.userSelect = 'none';
+    }
 
-    document.addEventListener("mouseup", function() {
-        isDragging = false;
-        document.body.style.userSelect = '';
-    });
-
-    document.addEventListener("mousemove", function(e) {
-    if (isDragging) {
-        let newLeft = e.clientX - offsetX;
-        let newTop = e.clientY - offsetY;
+    function onMove(x, y) {
+        if (!isDragging) return;
+        let newLeft = x - offsetX;
+        let newTop = y - offsetY;
 
         const maxLeft = window.innerWidth - win.offsetWidth;
         const maxTop = window.innerHeight - win.offsetHeight;
@@ -198,11 +191,30 @@ function makeDraggable(dragHandleId, windowId) {
         win.style.left = newLeft + "px";
         win.style.top = newTop + "px";
     }
+
+    dragHandle.addEventListener("mousedown", e => startDrag(e.clientX, e.clientY));
+    document.addEventListener("mousemove", e => onMove(e.clientX, e.clientY));
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        document.body.style.userSelect = '';
+    });
+
+    dragHandle.addEventListener("touchstart", e => {
+        const touch = e.touches[0];
+        startDrag(touch.clientX, touch.clientY);
+    });
+    document.addEventListener("touchmove", e => {
+        const touch = e.touches[0];
+        onMove(touch.clientX, touch.clientY);
+    }, { passive: false });
+    document.addEventListener("touchend", () => {
+        isDragging = false;
+        document.body.style.userSelect = '';
     });
 }
+
 makeDraggable("dragHandleMain", "portfolioWindow");
 makeDraggable("dragHandleMain", "aboutWindow");
-
 makeDraggable("dragHandleDetail", "detailWindow");
 
 const projects = document.querySelectorAll(".project");
