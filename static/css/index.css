@@ -225,4 +225,7 @@ body {
     .grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
+    .ascii {
+        font-size: 10px;
+    }
 }
