@@ -214,7 +214,7 @@ function makeDraggable(dragHandleId, windowId) {
 }
 
 makeDraggable("dragHandleMain", "portfolioWindow");
-makeDraggable("dragHandleMain", "aboutWindow");
+makeDraggable("dragHandleAbout", "aboutWindow");
 makeDraggable("dragHandleDetail", "detailWindow");
 
 const projects = document.querySelectorAll(".project");
