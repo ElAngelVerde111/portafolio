@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angel Verde | Servicios</title>
+  <link rel="stylesheet" href="./static/css/index.css" />
+</head>
+<body>
+  
+  <div class="terminal" id="terminal" tabindex="0" aria-label="Terminal de comandos">
+    <pre id="ascii-art" class="ascii hidden">
+        /$$$$$$                                /$$       /$$    /$$                          /$$          
+       /$$__  $$                              | $$      | $$   | $$                         | $$          
+      | $$  \ $$ /$$$$$$$   /$$$$$$   /$$$$$$ | $$      | $$   | $$ /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$ 
+      | $$$$$$$$| $$__  $$ /$$__  $$ /$$__  $$| $$      |  $$ / $$//$$__  $$ /$$__  $$ /$$__  $$ /$$__  $$
+      | $$__  $$| $$  \ $$| $$  \ $$| $$$$$$$$| $$       \  $$ $$/| $$$$$$$$| $$  \__/| $$  | $$| $$$$$$$$
+      | $$  | $$| $$  | $$| $$  | $$| $$_____/| $$        \  $$$/ | $$_____/| $$      | $$  | $$| $$_____/
+      | $$  | $$| $$  | $$|  $$$$$$$|  $$$$$$$| $$         \  $/  |  $$$$$$$| $$      |  $$$$$$$|  $$$$$$$
+      |__/  |__/|__/  |__/ \____  $$ \_______/|__/          \_/    \_______/|__/       \_______/ \_______/
+                            /$$  \ $$                                                                      
+                           |  $$$$$$/                                                                      
+                            \______/                                                                       
+
+    Angel Verde - Servicios de Desarrollo Web y Consultoría
+
+    Bienvenido a tu sitio tipo terminal. Escribe 'help' para ver los comandos.
+      <pre style="color:#33ff33;">
+        > help - Muestra este menú
+        > contacto - Datos para comunicarte
+        > portafolio - Muestra los proyectos
+        > acerca - Aprende más sobre mí
+      </pre>
+    </pre>
+    
+  </div>
+  <div class="input-line">
+    <span>&gt;</span><input type="text" id="input" autofocus aria-label="Entrada de comando" />
+  </div>
+
+  <div class="window" id="portfolioWindow" role="dialog" aria-modal="true" aria-labelledby="windowTitle" aria-hidden="true" tabindex="-1">
+    <div class="titlebar" id="dragHandleMain">
+      <span id="windowTitle">Explorador de Proyectos</span>
+      <button class="close-btn" onclick="closeWindow('portfolioWindow')" aria-label="Cerrar ventana">X</button>
+    </div>
+    <div class="content" id="portfolioContent">
+      <div class="grid" id="portfolioGrid">
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="fin" >
+          <img src="./PNG/fin/logo.png" alt="F.I.N - Pagina Web" />
+          <p>F.I.N - Pagina Web</p>
+        </div>
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="sicariato" >
+          <img src="./PNG/sicariato/logo.png" alt="Libreria Sicariato" />
+          <p>Libreria Sicariato</p>
+        </div>
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="alejo" >
+          <img src="./PNG/bleogo/logo.PNG" alt="Alejo" />
+          <p>Bleogo</p>
+        </div>
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="intumind" >
+          <img src="https://intumind.github.io/favicon.ico" alt="Intu-mind" />
+          <p>Intu-mind</p>
+        </div>
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="finex" >
+          <img src="./PNG/findex/logo.PNG" alt="FINEX" />
+          <p>FINEX</p>
+        </div>
+
+        <div class="project" tabindex="0" role="button" aria-pressed="false" data-id="burst" >
+          <img src="./PNG/burst/Logo.png" alt="BURST" />
+          <p>Burst-app</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="aboutWindow" role="dialog" aria-modal="true" aria-labelledby="windowTitle" aria-hidden="true" tabindex="-1">
+    <div class="titlebar" id="dragHandleMain">
+      <span id="windowTitle">Acerca de...</span>
+      <button class="close-btn" onclick="closeWindow('aboutWindow')" aria-label="Cerrar ventana">X</button>
+    </div>
+    
+    <div class="content" id="aboutContent">
+      <div class="about-info" style="color: #33ff33; font-family: monospace;">
+        <h2>Sobre mí</h2>
+        <p>Soy Angel Verde, desarrollador web con enfoque en proyectos <strong>experimentales</strong>, <strong>ocultistas</strong> y sistemas de alto impacto visual y filosófico.</p>
+
+        <p>Trabajo combinando:</p>
+        <ul>
+          <li>Backend con <strong>Python / Flask</strong>, PHP, Node.js, Ruby, Wordpress.</li>
+          <li>Frontend con <strong>Vue</strong> y React. Interfaces crudas, estéticas místicas, y performance sólida.</li>
+          <li>Desarrollo de <strong>CLI Tools</strong> personalizadas para automatización y control total</li>
+          <li>Algoritmos de IA y lógica cuántica</li>
+          <li>Seguridad informática y anonimato digital</li>
+          <li>Especializado en aplicaciones decentralizadas</li>
+        </ul>
+
+        <p>Mi enfoque se basa en la estética underground, la descentralización y la creación de software fuera de las reglas tradicionales.</p>
+
+        <hr style="border-color: #33ff33;" />
+
+        <p>Conectemos:</p>
+        <ul>
+          <li>Email: <a href="mailto:angelverde@tutamail.com" style="color:#33ff33;">angelverde@tutamail.com</a></li>
+          <li>GitHub: <a href="https://github.com/ElAngelVerde111" target="_blank" style="color:#33ff33;">ElAngelVerde111</a></li>
+          <li>Web: <a href="https://fin-noreste.org" target="_blank" style="color:#33ff33;">fin-noreste.org</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="detailWindow" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true" tabindex="-1">
+    <div class="titlebar" id="dragHandleDetail">
+      <span id="detailTitle">Detalle del Proyecto</span>
+      <button class="close-btn" onclick="closeWindow('detailWindow')" aria-label="Cerrar ventana detalle">X</button>
+    </div>
+    <div class="content" id="detailContent">
+      
+    </div>
+  </div>
+
+  <script src="./static/js/index.js"></script>
+</body>
+</html>

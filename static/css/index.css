@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    background-color: #0f0f0f;
+    color: #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem;
+    overflow: hidden;
+    user-select: none;
+}
+.terminal {
+    max-width: 100%;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    height: 80vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+.input-line {
+    display: flex;
+    margin-top: 0.5rem;
+}
+.input-line span {
+    margin-right: 0.5rem;
+}
+#input {
+    background: none;
+    border: none;
+    color: #33ff33;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Ventanas estilo explorador retro */
+.window {
+    position: fixed;
+    background-color: #0a0a0a;
+    border: 3px solid #33ff33;
+    box-shadow:
+    0 0 10px #00ff0044,
+    inset 0 0 15px #33ff33cc;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    user-select: text;
+}
+.window.show {
+    display: flex;
+}
+
+.titlebar {
+    background: linear-gradient(90deg, #004400, #007700);
+    color: #ccffcc;
+    padding: 5px 10px;
+    cursor: move;
+    user-select: none;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow:
+    0 0 5px #00ff00,
+    0 0 10px #00ff00;
+    border-bottom: 2px solid #33ff33;
+}
+.titlebar .close-btn {
+    background: #330000;
+    border: 1px solid #ccffcc;
+    color: #ccffcc;
+    padding: 0 8px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    box-shadow:
+    0 0 4px #ff0000;
+    transition: background-color 0.2s ease;
+}
+.titlebar .close-btn:hover {
+    background-color: #ff0000;
+    color: #000000;
+    box-shadow: none;
+}
+
+.content {
+    padding: 10px;
+    color: #33ff33;
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    text-shadow:
+    0 0 3px #00ff00aa;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+.project {
+    background: #111;
+    border: 2px solid #225522;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow:
+    inset 0 0 8px #00ff0066;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+    user-select: none;
+}
+.project:hover {
+    border-color: #00ff00;
+    box-shadow:
+    0 0 10px #00ff00,
+    inset 0 0 12px #00ff00cc;
+    transform: scale(1.05);
+}
+.project img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    margin-bottom: 6px;
+    border: 1px solid #33ff33;
+    border-radius: 3px;
+    box-shadow:
+    0 0 6px #00ff00bb;
+}
+.project p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-shadow:
+    0 0 5px #00ff00cc;
+}
+
+/* Scrollbar estilo CRT verde */
+.content::-webkit-scrollbar {
+    width: 8px;
+}
+.content::-webkit-scrollbar-track {
+    background: #050505;
+}
+.content::-webkit-scrollbar-thumb {
+    background: #33ff33;
+    border-radius: 4px;
+}
+
+/* Tamaños ventana principal y detalle */
+#portfolioWindow {
+    top: 10%;
+    left: 10%;
+    width: 600px;
+    max-width: 90vw;
+    height: 400px;
+    max-height: 80vh;
+}
+#detailWindow {
+    top: 15%;
+    left: 20%;
+    width: 500px;
+    max-width: 85vw;
+    height: 350px;
+    max-height: 75vh;
+}
+
+/* Ventana detalle contenido */
+#detailWindow .content img {
+    max-width: 48%;
+    margin: 1% 1% 1% 0;
+    border: 1px solid #33ff33;
+    border-radius: 3px;
+    box-shadow:
+    0 0 8px #00ff00aa;
+    vertical-align: top;
+}
+#detailWindow .content p.description {
+    margin-top: 0.5rem;
+    line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+    #portfolioWindow {
+    width: 95vw;
+    height: 70vh;
+    top: 5%;
+    left: 2.5%;
+    }
+    #detailWindow {
+    width: 90vw;
+    height: 60vh;
+    top: 8%;
+    left: 5%;
+    }
+    .project img {
+    height: 70px;
+    }
+    #detailWindow .content img {
+    max-width: 100%;
+    margin-bottom: 10px;
+    }
+}
