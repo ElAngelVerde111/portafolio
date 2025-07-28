@@ -17,7 +17,7 @@ const projectDetails = {
     },
     sicariato: {
     title: "Librería Sicariato",
-    description: "Marketplace alternativo para beats, trabajos, merch y productos digitales. Tomando inspiracion de la cultura del clandestina de market sites de drogras, y el trap. Con un enfoque en la privacidad y la descentralización. Aun en desarrollo, pero con una base sólida. Utilizando Flask, Python y Jinja2.",
+    description: "Marketplace alternativo para beats, trabajos, merch y productos digitales. Tomando inspiracion de la cultura del clandestina de market sites de drogas, y el trap. Con un enfoque en la privacidad y la descentralización. Aun en desarrollo, pero con una base sólida. Utilizando Flask, Python y Jinja2.",
     images: [
         "https://github.com/ElAngelVerde111/portafolio/blob/main/PNG/sicariato/one.PNG?raw=true",
         "https://github.com/ElAngelVerde111/portafolio/blob/main/PNG/sicariato/two.PNG?raw=true",
