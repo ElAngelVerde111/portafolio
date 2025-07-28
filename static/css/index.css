@@ -4,9 +4,18 @@ body {
     color: #33ff33;
     font-family: 'Courier New', Courier, monospace;
     padding: 1rem;
-    overflow: hidden;
+    overflow-x: hidden; /* SOLO ocultamos horizontal */
+    overflow-y: auto;
     user-select: none;
 }
+
+.ascii {
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+}
+
 .terminal {
     max-width: 100%;
     margin: 0 auto;
@@ -16,9 +25,13 @@ body {
     padding-right: 1rem;
 }
 .input-line {
-    display: flex;
-    margin-top: 0.5rem;
+    position: sticky;
+    bottom: 0;
+    background-color: #0f0f0f;
+    padding: 0.5rem;
+    z-index: 2000;
 }
+
 .input-line span {
     margin-right: 0.5rem;
 }
@@ -185,22 +198,31 @@ body {
 
 @media (max-width: 600px) {
     #portfolioWindow {
-    width: 95vw;
-    height: 70vh;
-    top: 5%;
-    left: 2.5%;
+        width: 95vw;
+        height: 70vh;
+        top: 5%;
+        left: 2.5%;
     }
     #detailWindow {
-    width: 90vw;
-    height: 60vh;
-    top: 8%;
-    left: 5%;
+        width: 90vw;
+        height: 60vh;
+        top: 8%;
+        left: 5%;
     }
     .project img {
-    height: 70px;
+        height: 70px;
     }
     #detailWindow .content img {
-    max-width: 100%;
-    margin-bottom: 10px;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    .project img {
+        height: 60px;
+    }
+    #detailWindow .content img {
+        max-width: 100%;
+    }
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }
